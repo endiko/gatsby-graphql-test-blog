@@ -8,7 +8,7 @@ const Navmenu = (props) => {
             <ul className="navmenu__list">
                 {props.navmenu.map((item, index) => (
                     <li className="navmenu__item" key={index}>
-                        <Link to="/" className="navmenu__item--link">{item}</Link>
+                        <Link to={`/${item.page}`} className="navmenu__item--link">{item.name}</Link>
                     </li>
                 ))}
             </ul>
