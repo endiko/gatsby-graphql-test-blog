@@ -7,47 +7,28 @@
 // You can delete this file if you're not using it
 const path = require('path')
 
-exports.onCreateNode = ({ node, actions }) => {
-    const { createNodeField } = actions
-
-    if (node.internal.type === 'MarkdownRemark') {
-        const slug = path.basename(node.fileAbsolutePath, '.md')
-        createNodeField({
-            node,
-            name: 'slug',
-            value: slug
-        })
-    }
-
-}
-
 exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
     const blogTemplate = path.resolve(`src/templates/blog.js`)
-    // Query for markdown nodes to use in creating pages.
-    // You can query for whatever data you want to create pages for e.g.
-    // products, portfolio items, landing pages, etc.
-    // Variables can be added as the second function parameter
+
     const res = await graphql(`
       query {
-        allMarkdownRemark {
-          edges {
-            node {
-              fields {
+        allContentfulBlogPost {
+            edges {
+              node {
                 slug
               }
             }
-          }
         }
       }
     `)
 
-    res.data.allMarkdownRemark.edges.forEach((edge) => {
+    res.data.allContentfulBlogPost.edges.forEach((edge) => {
         createPage({
             component: blogTemplate,
-            path: `/blog/${edge.node.fields.slug}`,
+            path: `/blog/${edge.node.slug}`,
             context: {
-                slug: edge.node.fields.slug
+                slug: edge.node.slug
             }
         })
     })
