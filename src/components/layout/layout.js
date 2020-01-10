@@ -20,7 +20,10 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title,
-          menuItems
+          menuItems {
+            name
+            page
+          }
         }
       }
     }
