@@ -3,7 +3,7 @@ module.exports = {
     title: `My blog`,
     description: `Desc`,
     author: `@endiko`,
-    menuItems: ['Самое свежее', 'Посты', 'Лучшее', 'Обо мне']
+    menuItems: [{ name: 'Самое свежее', page: 'newest' }, { name: 'Посты', page: 'blog' }, { name: 'Лучшее', page: 'the-best' }, { name: 'Обо мне', page: 'about' }]
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -35,7 +35,23 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-transformer-remark`
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          'gatsby-remark-relative-images',
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 750,
+              linkImagesToOriginal: false
+            }
+          }
+        ]
+      }
+    }
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
