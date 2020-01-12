@@ -1,5 +1,4 @@
 import React from 'react'
-import SocialIcon from './socialIcon'
 import './socialIcons.scss'
 import { FaInstagram, FaYoutube } from 'react-icons/fa';
 

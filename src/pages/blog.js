@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
+import SEO from "../components/seo"
 import Layout from '../components/layout/layout'
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 
-const BlogPage = () => {
+const BlogPage = ({ location }) => {
     const data = useStaticQuery(graphql`
         query {
             allContentfulBlogPost {
@@ -18,6 +20,8 @@ const BlogPage = () => {
     `)
     return (
         <Layout>
+            <SEO title="Посты" />
+            <Breadcrumb location={location} crumbLabel="Блог" />
             <h1>Blog</h1>
             <ul>
                 {data.allContentfulBlogPost.edges.map((edge, index) => (
