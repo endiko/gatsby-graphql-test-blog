@@ -1,0 +1,10 @@
+.navmenu {
+    &__list {
+        display: flex;
+        align-items: center;
+    }
+
+    &__item--link {
+        padding: .5rem 1rem;
+    }
+}
