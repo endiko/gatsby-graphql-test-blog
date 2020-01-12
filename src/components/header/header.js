@@ -1,10 +1,11 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import './header.css'
+import './header.scss'
 import Navmenu from '../navmenu/navmenu'
+import Socials from '../socials/socialIcons'
 
-const Header = ({ siteTitle, siteNavmenu }) => (
+const Header = ({ siteTitle, siteNavmenu, socials }) => (
   <header className="header">
     <div className="container header-container">
       <h1>
@@ -15,6 +16,7 @@ const Header = ({ siteTitle, siteNavmenu }) => (
         </Link>
       </h1>
       <Navmenu navmenu={siteNavmenu} />
+      <Socials socials={socials} />
     </div>
   </header>
 )
