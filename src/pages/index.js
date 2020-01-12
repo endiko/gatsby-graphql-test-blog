@@ -6,8 +6,8 @@ import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 import './index.scss'
 
-const IndexPage = () => (
-  <Layout>
+const IndexPage = ({ location }) => (
+  <Layout location={location} crumbLabel="">
     <SEO title="endiko blog" />
     <h1>Свежие записи</h1>
     <p>Добро пожаловать!</p>

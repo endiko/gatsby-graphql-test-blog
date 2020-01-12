@@ -12,10 +12,10 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "../header/header"
 import Main from "../main/main"
 import Footer from '../footer/footer'
-
+import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import "./layout.scss"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, location, crumbLabel }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -36,10 +36,14 @@ const Layout = ({ children }) => {
 
   return (
     <div className="layout__wrapper">
-      <Header siteTitle={data.site.siteMetadata.title} siteNavmenu={data.site.siteMetadata.menuItems} socials={data.site.siteMetadata.socialIcons} />
+      <Header
+        siteTitle={data.site.siteMetadata.title}
+        siteNavmenu={data.site.siteMetadata.menuItems}
+        socials={data.site.siteMetadata.socialIcons}
+      />
 
       <Main>
-
+        <Breadcrumb location={location} crumbLabel={crumbLabel} className="breadcrumb__list" />
         {children}
       </Main>
       <Footer />
