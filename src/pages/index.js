@@ -2,15 +2,16 @@ import React from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout/layout"
-import Image from "../components/image"
+// import Image from "../components/image"
 import SEO from "../components/seo"
+import './index.scss'
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+    <SEO title="endiko blog" />
+    <h1>Свежие записи</h1>
+    <p>Добро пожаловать!</p>
+    <p>Скоро здесь будет текст.</p>
 
     <Link to="/about">Go to page 2</Link>
   </Layout>

@@ -2,12 +2,23 @@ require('dotenv').config({ path: `.env.${process.env.NODE_ENV}`, })
 
 module.exports = {
   siteMetadata: {
-    title: `My blog`,
+    title: `endiko's blog`,
     description: `Desc`,
-    author: `@endiko`,
-    menuItems: [{ name: 'Самое свежее', page: 'newest' }, { name: 'Посты', page: 'blog' }, { name: 'Лучшее', page: 'the-best' }, { name: 'Обо мне', page: 'about' }]
+    author: `Nadezhda Kogay @endiko`,
+    menuItems: [{ name: 'Новое', page: 'newest' }, { name: 'Посты', page: 'blog' }, { name: 'Лучшее', page: 'the-best' }, { name: 'Обо мне', page: 'about' }],
+    socialIcons: [
+      {
+        name: 'Instagram',
+        href: 'https://instagram.com/_endiko_'
+      },
+      {
+        name: 'Youtube',
+        href: 'https://youtube/endik0'
+      }
+    ]
   },
   plugins: [
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-contentful`,
       options: {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import './navmenu.css'
+import './navmenu.scss'
 
 const Navmenu = (props) => {
     return (
